@@ -51,6 +51,11 @@ describe('heuristicEventGenerator', () => {
     expect(e.org).toBe('Penn Dumpling Club');
   });
 
+  it('does not read food words inside the org name', async () => {
+    const e = await gen('Free burritos at Houston Hall, hosted by Penn Taco Society');
+    expect(e.food).toBe('Burritos');
+  });
+
   it('prefers the org given by the source', async () => {
     const e = await gen('free bagels in DRL', { org: 'Physics Club' });
     expect(e.org).toBe('Physics Club');

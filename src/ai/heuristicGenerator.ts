@@ -178,7 +178,9 @@ export const heuristicEventGenerator: EventGenerator = {
   async generate(raw: RawMessage): Promise<GeneratedEvent> {
     const text = raw.text;
     const base = new Date(raw.receivedAt);
-    const foods = findFoods(text);
+    const org = raw.org ?? findOrg(text);
+    // Don't mistake an org name ("Penn Taco Society") for the food on offer.
+    const foods = findFoods(org ? text.replace(org, ' ') : text);
     const food = foods.length ? joinList(foods) : null;
     const isFreeFood = food !== null && FREE_SIGNALS.test(text.toLowerCase());
     const location = findLocation(text);
@@ -186,7 +188,6 @@ export const heuristicEventGenerator: EventGenerator = {
     const dietaryTags = findDietary(text);
     const requiredActions = findRequiredActions(text);
     const category = findCategory(text);
-    const org = raw.org ?? findOrg(text);
 
     const title = capitalize(
       `free ${food ?? 'food'}${location ? ` @ ${location.name}` : org ? ` with ${org}` : ''}`,
