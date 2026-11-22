@@ -129,7 +129,7 @@ export function buildSeed(now: Date): MockDb {
       key: 'diwali',
       title: 'Diwali dinner celebration',
       description:
-        'Celebrate Diwali with a free dinner of samosas, biryani, and sweets. Cultural performances start at 7.',
+        'Celebrate Diwali with a free dinner of samosas, biryani, and sweets. Cultural performances follow dinner.',
       food: 'Samosas, biryani, and gulab jamun',
       category: 'cultural',
       requiredActions: [{ label: 'RSVP form', url: 'https://forms.gle/example' }],
