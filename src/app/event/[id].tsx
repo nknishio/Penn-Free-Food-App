@@ -27,6 +27,7 @@ import { useComments } from '@/hooks/useComments';
 import { useEventActions } from '@/hooks/useEventActions';
 import { useNow } from '@/hooks/useNow';
 import { useUserLocation } from '@/hooks/useUserLocation';
+import { googleCalendarUrl } from '@/lib/calendar';
 import { hiddenReason, isHappeningNow, type HiddenReason } from '@/lib/expiry';
 import { eventTimeLabel, eventTimeRange } from '@/lib/format';
 import { distanceMi, formatDistance } from '@/lib/geo';
@@ -100,6 +101,11 @@ export default function EventScreen() {
             label={viewer.saved ? 'Saved' : 'Save'}
             active={viewer.saved}
             onPress={() => onToggleSaved(item)}
+          />
+          <ActionButton
+            icon="calendar"
+            label="Calendar"
+            onPress={() => WebBrowser.openBrowserAsync(googleCalendarUrl(event))}
           />
           <ActionButton
             icon="comment"

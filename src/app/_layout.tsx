@@ -3,6 +3,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 
+import { NotificationsBootstrap } from '@/components/NotificationsBootstrap';
 import { useSession } from '@/store/session';
 import { colors } from '@/theme';
 
@@ -22,6 +23,7 @@ export default function RootLayout() {
   return (
     <>
       <StatusBar style="dark" />
+      {signedIn && <NotificationsBootstrap />}
       <Stack
         screenOptions={{
           headerTintColor: colors.primary,

@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router';
 import type { ColorValue } from 'react-native';
 
 import { HeaderButton } from '@/components/HeaderButton';
+import { NotificationBell } from '@/components/NotificationBell';
 import { Icon, type IconName } from '@/components/ui/Icon';
 import { colors } from '@/theme';
 
@@ -30,13 +31,7 @@ export default function TabsLayout() {
             onPress={() => router.push('/post/new')}
           />
         ),
-        headerRight: () => (
-          <HeaderButton
-            icon="bell"
-            accessibilityLabel="Notifications"
-            onPress={() => router.push('/notifications')}
-          />
-        ),
+        headerRight: () => <NotificationBell />,
       }}>
       <Tabs.Screen name="discover" options={{ title: 'Discover', tabBarIcon: tabIcon('map') }} />
       <Tabs.Screen name="index" options={{ title: 'Feed', tabBarIcon: tabIcon('feed') }} />
