@@ -74,5 +74,11 @@ export const PENN_LOCATIONS: PennLocation[] = [
     longitude: -75.1969,
     aliases: ['pcpse', 'perelman center'],
   },
+  {
+    name: 'Steinhardt Hall (Hillel)',
+    latitude: 39.9536,
+    longitude: -75.2003,
+    aliases: ['hillel', 'steinhardt'],
+  },
   { name: 'Penn Museum', latitude: 39.9493, longitude: -75.1913, aliases: ['penn museum'] },
 ];
