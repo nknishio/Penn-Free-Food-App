@@ -1,6 +1,6 @@
 import type { EventStats, FeedItem, FoodEvent } from '@/types';
 
-/** Fixed reference time for deterministic tests: Sat Nov 22 2026, 12:00 local. */
+/** Fixed reference time for deterministic tests: Sun Nov 22 2026, 12:00 local. */
 export const NOW = new Date(2026, 10, 22, 12, 0, 0);
 
 const minutes = (n: number) => new Date(NOW.getTime() + n * 60 * 1000).toISOString();
