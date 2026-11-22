@@ -6,7 +6,7 @@ export function computeEventStats(
   eventId: string,
   votes: Vote[],
   reports: Report[],
-  comments: Comment[],
+  comments: Pick<Comment, 'eventId'>[],
 ): EventStats {
   const stats: EventStats = {
     upvotes: 0,
@@ -36,7 +36,7 @@ export function buildFeedItem(
   data: {
     votes: Vote[];
     reports: Report[];
-    comments: Comment[];
+    comments: Pick<Comment, 'eventId'>[];
     saves: { eventId: string; userId: string }[];
   },
 ): FeedItem {
