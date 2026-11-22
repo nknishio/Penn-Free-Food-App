@@ -38,6 +38,13 @@
         {
           "locationWhenInUsePermission": "Penn Free Food uses your location to show nearby free food and to confirm you are at an event when you vote."
         }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Penn Free Food lets you attach photos of the food you post.",
+          "cameraPermission": false
+        }
       ]
     ],
     "experiments": {
