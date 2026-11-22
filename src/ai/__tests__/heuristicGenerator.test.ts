@@ -46,6 +46,11 @@ describe('heuristicEventGenerator', () => {
     expect(e.isFreeFood).toBe(false);
   });
 
+  it('finds the org regardless of "hosted by" casing', async () => {
+    const e = await gen('Free dumplings in Levine. Hosted by Penn Dumpling Club');
+    expect(e.org).toBe('Penn Dumpling Club');
+  });
+
   it('prefers the org given by the source', async () => {
     const e = await gen('free bagels in DRL', { org: 'Physics Club' });
     expect(e.org).toBe('Physics Club');

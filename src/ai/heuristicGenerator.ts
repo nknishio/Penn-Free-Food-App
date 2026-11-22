@@ -149,7 +149,9 @@ const ORG_NAME = "((?:the )?[A-Z][\\w&'-]*(?:\\s+(?:of|for|and|&|[A-Z][\\w&'-]*)
 
 function findOrg(text: string): string | null {
   const patterns = [
-    new RegExp(`\\b(?:hosted|presented|sponsored|organized|brought to you) by ${ORG_NAME}`),
+    new RegExp(
+      `\\b(?:[Hh]osted|[Pp]resented|[Ss]ponsored|[Oo]rganized|[Bb]rought to you) by ${ORG_NAME}`,
+    ),
     new RegExp(`\\b[Jj]oin ${ORG_NAME} (?:for|at|in|on)\\b`),
   ];
   for (const re of patterns) {
