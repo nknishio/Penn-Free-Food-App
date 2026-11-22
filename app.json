@@ -32,6 +32,12 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Penn Free Food uses your location to show nearby free food and to confirm you are at an event when you vote."
+        }
       ]
     ],
     "experiments": {

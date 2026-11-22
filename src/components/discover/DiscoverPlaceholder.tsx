@@ -1,4 +1,4 @@
-import { Link } from 'expo-router';
+import { useRouter } from 'expo-router';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { Icon } from '@/components/ui/Icon';
@@ -19,6 +19,7 @@ import { colors, font, radius, spacing } from '@/theme';
  */
 export function DiscoverPlaceholder() {
   useLoadEvents();
+  const router = useRouter();
   const items = useEvents((s) => s.items);
   const now = new Date();
   const visible = items.filter((i) => isVisibleInFeed(i, now));
@@ -38,20 +39,18 @@ export function DiscoverPlaceholder() {
         </View>
       }
       renderItem={({ item: { event } }) => (
-        <Link href={`/event/${event.id}`} asChild>
-          <Pressable style={styles.row}>
-            <Icon name="pin" size={18} color={colors.accent} />
-            <View style={styles.rowText}>
-              <Text style={font.body} numberOfLines={1}>
-                {event.title}
-              </Text>
-              <Text style={styles.muted}>
-                {event.location.name} · {event.location.latitude.toFixed(4)},{' '}
-                {event.location.longitude.toFixed(4)}
-              </Text>
-            </View>
-          </Pressable>
-        </Link>
+        <Pressable style={styles.row} onPress={() => router.push(`/event/${event.id}`)}>
+          <Icon name="pin" size={18} color={colors.accent} />
+          <View style={styles.rowText}>
+            <Text style={font.body} numberOfLines={1}>
+              {event.title}
+            </Text>
+            <Text style={styles.muted}>
+              {event.location.name} · {event.location.latitude.toFixed(4)},{' '}
+              {event.location.longitude.toFixed(4)}
+            </Text>
+          </View>
+        </Pressable>
       )}
     />
   );
