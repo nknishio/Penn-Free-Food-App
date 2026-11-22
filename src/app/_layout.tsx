@@ -29,7 +29,13 @@ export default function RootLayout() {
           contentStyle: { backgroundColor: colors.background },
         }}>
         <Stack.Protected guard={signedIn}>
-          <Stack.Screen name="index" options={{ title: 'Penn Free Food' }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="event/[id]" options={{ title: '', headerBackTitle: 'Back' }} />
+          <Stack.Screen
+            name="post/new"
+            options={{ presentation: 'modal', title: 'Post free food' }}
+          />
+          <Stack.Screen name="notifications" options={{ title: 'Notifications' }} />
         </Stack.Protected>
         <Stack.Protected guard={!signedIn}>
           <Stack.Screen name="login" options={{ headerShown: false }} />
